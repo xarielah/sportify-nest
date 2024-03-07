@@ -25,7 +25,7 @@ export class AuthController {
       httpOnly: true,
     });
 
-    res.redirect('http://localhost:3000');
+    res.redirect(process.env.FRONTEND || 'http://localhost:5173');
   }
 
   @UseGuards(TokenExpiry)
@@ -42,6 +42,6 @@ export class AuthController {
     res.clearCookie('refresh_token');
     // revoke the refresh token from google itself.
     this.authService.revokeGoogleToken(refreshToken);
-    res.redirect('http://localhost:3000');
+    res.redirect(process.env.FRONTEND || 'http://localhost:5173');
   }
 }
