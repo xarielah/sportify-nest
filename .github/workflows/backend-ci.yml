@@ -29,4 +29,4 @@ jobs:
           echo "${{ secrets.PROD_ENV }}" > .env
 
       - name: Deploy with PM2
-        run: pm2 restart SportifyBack --upda
+        run: pm2 restart SportifyBack --update-env
