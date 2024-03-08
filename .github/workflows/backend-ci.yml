@@ -19,7 +19,7 @@ jobs:
       - name: ENV Vars
         run: |
           touch .env
-          echo "${{ secrets.PROD_ENV }}" >> .env
+          echo "${{ secrets.PROD_ENV }}" > .env
 
       - name: Install dependencies
         run: npm ci
